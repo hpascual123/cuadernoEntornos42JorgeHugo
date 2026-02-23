@@ -105,6 +105,20 @@ public class Tren {
         //todos los vagones
         return cargaTotalCalculada;
     }
+    /** 
+     * Método que regula la velocidad del tren en caso de que supere el límite
+    */
+    public String limiteVelocidad(Locomotora l){
+        String mensaje = " ";
+        //Compruebo la velocidad del tren
+        if (l.getVelocidad() >= 280){
+            //Le asigno una velocidad inferior
+            mensaje += "El tren ha superado el límite de velocidad, regulando velocidad";
+            l.setVelocidad(250);
+            return mensaje;
+        }
+        return mensaje;
+    }
 
     @Override
     public String toString() {

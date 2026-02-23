@@ -13,6 +13,7 @@ public class Maquinista {
     private String DNI;
     private double sueldo;
     private String nombre;
+    private int edad;
     /**
      * Voy a volver a utilizar enum, para que veaís como funciona, pero también
      * se podría hacer con un String, int o double. No lo especifica en el enunciado.
@@ -21,16 +22,21 @@ public class Maquinista {
     private Rango rango; //Alto - Medio - Bajo
     
     //CONSTRUCTOR
-    public Maquinista(String DNI, double sueldo, String nombre, String rango) {
+    public Maquinista(String DNI, double sueldo, String nombre, String rango, int edad) {
         this.DNI = DNI;
         this.sueldo = sueldo;
         this.nombre = nombre;
         this.rango = Rango.valueOf(rango.toUpperCase());
+        this.edad = edad;
     }
 
     //GETTERS 
     public String getDNI() {
         return DNI;
+    }
+
+    public int getEdad(){
+        return edad;
     }
 
     public double getSueldo() {
@@ -77,6 +83,19 @@ public class Maquinista {
             System.err.println("Este maquinista ya tiene el rango máximo.");
         }
     }
+
+    /**
+     * Comprueba la edad del maquinista para saber si se debe jubilar.
+     * @param edad Recibe la edad del maquinista
+     */
+    public void jubilacion(int edad){
+        if(edad > 60){
+            System.out.println("El maquinista ha superado el máximo de edad, no está permitido a conducir trenes.");
+        }
+        else{
+            System.out.println("El maquinista está en plenas facultades para poder conducir trenes.");
+        }
+    }
     
     /**
      * Método que devuelve una cadena de texto con la información del
@@ -84,9 +103,15 @@ public class Maquinista {
      * @return 
      */
     @Override
-    public String toString() {
-        return "Maquinista{" + "DNI=" + DNI + ", sueldo=" + sueldo + ", nombre=" + nombre + ", rango=" + rango + '}';
-    }
+public String toString() {
+    return "Maquinista{" + 
+        "DNI=" + DNI + 
+        ", sueldo=" + sueldo + 
+        ", nombre=" + nombre + 
+        ", rango=" + rango + 
+        ", edad=" + edad + 
+        '}';
+}
     
     
     
