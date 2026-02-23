@@ -19,13 +19,16 @@ public class Locomotora {
     private int añoFabricacion; 
     //Una locomotora tiene asociado un mecanico, de tipo Mecánico (con todos sus datos)
     private Mecanico mecanicoAsignado;
-    
+    //Una locomotora tiene una velocidad a la que va a moverse
+    private int velocidad;
+
     //CONSTRUCTOR
-    public Locomotora(String matricula, double potencia, int añoFabricacion, Mecanico mecanicoAsignado) {
+    public Locomotora(String matricula, double potencia, int añoFabricacion, Mecanico mecanicoAsignado, int velocidad) {
         this.matricula = matricula;
         this.potencia = potencia;
         this.añoFabricacion = añoFabricacion;
         this.mecanicoAsignado = mecanicoAsignado;
+        this.velocidad = velocidad
     }
     
     //GETTER
@@ -45,6 +48,10 @@ public class Locomotora {
         return mecanicoAsignado;
     }
     
+    public int getVelocidad(){
+        return velocidad;
+    }
+
     //SETTER --> Lo único que podría cambiar es el maquinista.
     /**
      * setmecancicoaAsignado, es el mismo método que me piden asignarMecanico
@@ -54,6 +61,10 @@ public class Locomotora {
         this.mecanicoAsignado = mecanicoAsignado;
     }
     
+    public void setVelocidad(int velocidad){
+        this.velocidad = velocidad;
+    }
+
     /**
      * Método que devuelve los años desde la fabricación.
      * @return 
